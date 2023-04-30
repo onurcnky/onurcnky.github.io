@@ -144,6 +144,8 @@ closeScormBtn.addEventListener("click", function() {
 </script>
 
 // Set the SCORM Cloud configuration options
+
+</script>
 var scorm = pipwerks.SCORM;
 scorm.configure({
     "auth": {
@@ -160,3 +162,7 @@ var launchUrl = "https://cloud.scorm.com/EngineWebServices/api/v1";
 var courseId = "HazID7e6ed4df-a241-4bbb-a794-bf4fa87a3869";
 var player = pipwerks.SCORMCloud.getSCORMPlayer(launchUrl, courseId);
 player.launch();
+
+ </script>
+  </body>
+</html>
