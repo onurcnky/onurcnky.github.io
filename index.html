@@ -142,11 +142,16 @@ closeScormBtn.addEventListener("click", function() {
 	document.getElementById("scorm-frame").setAttribute("src", "");
 });
 	
-</script>
+<html>
+  <head>
+    <!-- your other head elements -->
+  </head>
+  <body>
+    <!-- your body elements -->
+    <script>
 
 // Set the SCORM Cloud configuration options
 
-</script>
 var scorm = pipwerks.SCORM;
 scorm.configure({
     "auth": {
@@ -165,4 +170,6 @@ var player = pipwerks.SCORMCloud.getSCORMPlayer(launchUrl, courseId);
 player.launch();
 
  </script>
+  </body>
+</html>
 
