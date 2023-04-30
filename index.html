@@ -173,3 +173,26 @@ player.launch();
   </body>
 </html>
 
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My SCORM Package</title>
+</head>
+<body>
+    <h1>My SCORM Package</h1>
+    <div id="scormPlayer"></div>
+
+    <script src="https://cloud.scorm.com/sc/9T7TTB0VKPQJRHCB/api" type="text/javascript"></script>
+    <script>
+        var player = pipwerks.SCORM.createPlayer({
+            "url": "https://cloud.scorm.com/content/preview/9T7TTB0VKPQJRHCB/T-34-85_Tank_Familiarization/index.html",
+            "id": "scormPlayer",
+            "width": "100%",
+            "height": "500px",
+            "onload": function() {
+                player.start();
+            }
+        });
+    </script>
+</body>
+</html>
