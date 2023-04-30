@@ -61,58 +61,6 @@
     videoPlayer.style.display = 'none';
   });
 
-  // load the YouTube iframe API
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  // create the player object
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('player', {
-      events: {
-        'onReady': onPlayerReady
-      }
-    });
-  }
-
-  // set the video ID and start playing the video
-  function onPlayerReady(event) {
-    player.loadVideoById('VIDEO_ID');
-    player.playVideo();
-  }
-</script>
-
-</html>
-
-<head>
-	<title>My Website</title>
-</head>
-<body>
-	<h1>Contact Us</h1>
-
-	<form action="submit.php" method="post">
-	  <label for="name">Name:</label>
-	  <input type="text" id="name" name="name" required>
-
-	  <label for="email">Email:</label>
-	  <input type="email" id="email" name="email" required>
-
-	  <label for="message">Message:</label>
-	  <textarea id="message" name="message" rows="4" required></textarea>
-
-	  <input type="submit" value="Submit">
-	</form>
-</body>
-</html>
-
-</script>
-
-<div id="scorm-container">
-	<iframe id="scorm-frame" src="" frameborder="0"></iframe>
-	<button id="close-scorm-btn">Close</button>
-</div>
 
 <script>
 // Get the "Play SCORM" button and the SCORM container
