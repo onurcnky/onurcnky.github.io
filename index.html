@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website</title>
+  <title>My SCORM Player</title>
   <script src="SCORM_API_wrapper.js"></script>
-  
 </head>
 <body>
-  <header>
-    <button id="play-scorm">Play SCORM</button>
-  </header>
+  <button id="play-scorm">Play SCORM</button>
+
   <script>
     var scormWindow;
-    var scormPlayerUrl = "ihasco/scorm2004.html";
-    var scormPackageUrl = "ihasco";
+    var scormPlayerUrl = "path/to/scorm2004.html?imsmanifest=path/to/imsmanifest.xml";
 
     function launchScormPlayer() {
       if (scormWindow && !scormWindow.closed) {
         scormWindow.close();
       }
-      scormWindow = window.open(scormPlayerUrl + "?url=" + encodeURIComponent(scormPackageUrl));
+      scormWindow = window.open(scormPlayerUrl);
     }
 
     document.getElementById("play-scorm").addEventListener("click", launchScormPlayer);
   </script>
 </body>
 </html>
+
+
