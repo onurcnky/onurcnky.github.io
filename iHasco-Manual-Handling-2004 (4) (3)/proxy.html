@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Proxy</title>
+<script type="text/javascript">
+var msg = "",
+    vars = false,
+    pairs = [],
+    querystring = window.location.href.split("?")[1] || false;
+
+if(querystring && querystring.indexOf("msg=") !== -1){
+    querystring = querystring.replace(/&amp;/g, "&");
+    pairs = querystring.split("&");
+
+    for(var i=0; i < pairs.length; i++){
+
+        if(pairs[i].indexOf("msg=") !== -1){
+            msg = pairs[i].replace("msg=", "");
+            msg = decodeURI(msg);
+            msg = msg.replace(/%3F/g, "?");
+        }
+        if(pairs[i].indexOf("vars=") !== -1){
+            vars = pairs[i].replace("vars=", "");
+            vars = decodeURI(vars);
+            vars = vars.replace(/%3F/g, "?");
+        }
+
+    }
+    switch(msg) {
+        case 'complete':
+            parent.parent.complete();
+            break;
+        case 'passed':
+            parent.parent.passed();
+            break;
+        case 'failed':
+            parent.parent.failed();
+            break;
+        case 'progress':
+            parent.parent.progress(vars);
+            break;
+        case 'score':
+            args = vars.split(",");
+            parent.parent.score(args[0],args[1]);
+            break;
+    }
+}
+</script>
+</head>
+<body></body>
+</html>
