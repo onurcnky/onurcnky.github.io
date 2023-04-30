@@ -30,11 +30,11 @@
 <body>
 	<!-- Create the navigation bar -->
 	<nav>
-		<a href="#home">Home</a>
-		<a href="#about" id="about-link">About</a>
-		<a href="#contact">Contact</a>
-		<a href="#" id="scorm-link">Play SCORM</a>
-	</nav>
+	<a href="#home">Home</a>
+	<a href="#about" id="about-link">About</a>
+	<a href="#contact">Contact</a>
+	<button id="scorm-btn">Play SCORM</button>
+</nav>
 
 	<!-- Add your header and content here -->
 	<h1>Welcome to my website</h1>
@@ -118,5 +118,39 @@ var player = pipwerks.SCORMPlayer.create({
     pipwerks.SCORMPlayer.debug: true
 });
 </script>
+
+<div id="scorm-container">
+	<iframe id="scorm-frame" src="" frameborder="0"></iframe>
+	<button id="close-scorm-btn">Close</button>
+</div>
+
+<script>
+// Get the "Play SCORM" button and the SCORM container
+const scormBtn = document.getElementById("scorm-btn");
+const scormContainer = document.getElementById("scorm-container");
+
+// Get the "Close" button from the SCORM container
+const closeScormBtn = scormContainer.querySelector("#close-scorm-btn");
+
+// Add a click event listener to the "Play SCORM" button
+scormBtn.addEventListener("click", function() {
+	// Set the URL of the SCORM player
+	const scormUrl = "https://cloud.scorm.com/lrs/E57DRWTL2D/";
+	document.getElementById("scorm-frame").setAttribute("src", scormUrl);
+
+	// Show the SCORM container
+	scormContainer.style.display = "block";
+});
+
+// Add a click event listener to the "Close" button in the SCORM container
+closeScormBtn.addEventListener("click", function() {
+	// Hide the SCORM container
+	scormContainer.style.display = "none";
+
+	// Stop the SCORM player from playing
+	document.getElementById("scorm-frame").setAttribute("src", "");
+});
+</script>
+
 
 
