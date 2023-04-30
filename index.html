@@ -39,12 +39,31 @@
 	<h1>Welcome to my website</h1>
 	<p>This is some sample content for your website.</p>
 
-	<!-- Add the video player code -->
+	
+	<div id="video-player">
+  <!-- your video player code here -->
+		
+		<!-- Add the video player code -->
 	<div id="video-container" style="display:none;">
 		<video controls>
 			<source src="path/to/video.mp4" type="video/mp4">
 		</video>
 	</div>
+	
+  <button id="close-btn">X</button>
+</div>
+
+<script>
+  // get the close button element
+  var closeBtn = document.getElementById('close-btn');
+
+  // add event listener to close the video player on click
+  closeBtn.addEventListener('click', function() {
+    var videoPlayer = document.getElementById('video-player');
+    videoPlayer.style.display = 'none';
+  });
+</script>
+
 
 	<!-- Add JavaScript to open the video player when the "About" link is clicked -->
 	<script>
