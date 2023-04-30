@@ -3,6 +3,32 @@
 <script src="jszip.min.js"></script>
 <script src="pipwerks.SCORM.js"></script>
 
+<script>
+    var playScormBtn = document.getElementById("play-scorm-btn");
+    playScormBtn.addEventListener("click", function() {
+        // Load the zip file
+        JSZip.loadAsync("my-scorm-content.zip")
+            .then(function(zip) {
+                // Extract the SCORM content from the zip file
+                var scormContent = zip.file("scorm_content_folder/index.html").async("string");
+                // Wait for the content to be extracted
+                return scormContent;
+            })
+            .then(function(scormContent) {
+                // Set up the pipwerks SCORM Wrapper
+                pipwerks.SCORM.init();
+                // Set the SCORM content to the iframe
+                var iframe = document.createElement("iframe");
+                iframe.srcdoc = scormContent;
+                document.body.appendChild(iframe);
+            })
+            .catch(function(error) {
+                console.error("Error loading SCORM content", error);
+            });
+    });
+</script>
+
+
 <html>
   <head>
     <title>My SCORM Player</title>
