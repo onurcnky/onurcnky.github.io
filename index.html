@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Website</title>
+    <title>My SCORM Player</title>
   </head>
   <body>
     <header>
-      <button onclick="playScorm()">Play SCORM</button>
+      <button id="play-scorm">Play SCORM</button>
     </header>
+    <script src="scormapi_wrapper.js"></script>
     <script>
-      function playScorm() {
-        var scormIframe = document.createElement("iframe");
-        scormIframe.setAttribute("src", "iHasco-Manual-Handling-2004 (4).zip");
-        scormIframe.setAttribute("height", "100%");
-        scormIframe.setAttribute("width", "100%");
-        document.body.appendChild(scormIframe);
-      }
+      var scorm = pipwerks.SCORM;
+      var scormInitialized = false;
+
+      document.getElementById("play-scorm").addEventListener("click", function() {
+        if (!scormInitialized) {
+          scorm.init();
+          scormInitialized = true;
+        }
+        scorm.quit();
+        var scormWindow = window.open("path/to/my/scorm/content.html");
+      });
     </script>
   </body>
 </html>
