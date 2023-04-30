@@ -128,6 +128,7 @@ scormBtn.addEventListener("click", function() {
 	// Show the SCORM container
 	scormContainer.style.display = "block";
 });
+	
 
 // Add a click event listener to the "Close" button in the SCORM container
 closeScormBtn.addEventListener("click", function() {
@@ -139,3 +140,20 @@ closeScormBtn.addEventListener("click", function() {
 });
 </script>
 
+// Set the SCORM Cloud configuration options
+var scorm = pipwerks.SCORM;
+scorm.configure({
+    "auth": {
+        "method": "basic",
+        "username": "onurcankaya@acthse.com",
+        "password": "g2@WS*M.*ZRfW#R"
+    },
+    "appid": "E57DRWTL2D",
+    "secret": "Pqc7qUpt7WPhpDhlpHRsa0s75ZUsmBZ8z8PJCEAC"
+});
+
+// Launch the SCORM package
+var launchUrl = "https://cloud.scorm.com/EngineWebServices/api/v1";
+var courseId = "HazID7e6ed4df-a241-4bbb-a794-bf4fa87a3869";
+var player = pipwerks.SCORMCloud.getSCORMPlayer(launchUrl, courseId);
+player.launch();
