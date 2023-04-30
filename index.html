@@ -1,31 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>My Website</title>
-	<script src="SCORM_API_wrapper.js"></script>
-	<script>
-		var scorm = pipwerks.SCORM; // initialize the SCORM API Wrapper
-		scorm.version = "1.2"; // set the SCORM version to use
-		
-		function launchScorm() {
-			scorm.init(); // initialize the SCORM API
-			scorm.set("cmi.core.lesson_status", "incomplete"); // set the lesson status to incomplete
-			var result = scorm.getLastError();
-			if (result != "") {
-				alert("Error: " + result); // display any error messages
-			} else {
-				window.open("iHasco-Manual-Handling-2004 (4).zip", "_blank"); // launch the SCORM course in a new window
-			}
-		}
-	</script>
-</head>
-<body>
-	<header>
-		<h1>My Website</h1>
-		<button onclick="launchScorm()">Play SCORM</button>
-	</header>
-	<main>
-		<!-- Your website content here -->
-	</main>
-</body>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <header>
+      <button onclick="playScorm()">Play SCORM</button>
+    </header>
+    <script>
+      function playScorm() {
+        var scormIframe = document.createElement("iframe");
+        scormIframe.setAttribute("src", "path/to/your/scorm/zip/file/index.html");
+        scormIframe.setAttribute("height", "100%");
+        scormIframe.setAttribute("width", "100%");
+        document.body.appendChild(scormIframe);
+      }
+    </script>
+  </body>
 </html>
