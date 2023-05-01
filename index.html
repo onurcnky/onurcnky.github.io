@@ -2,14 +2,14 @@
 <html>
 <head>
   <title>My SCORM Player</title>
-  <script src="ihasco/SCORM_API_wrapper.js"></script>
+  <script src="SCORM_API_wrapper.js"></script>
 </head>
 <body>
   <button id="play-scorm">Play SCORM</button>
 
   <script>
     var scormWindow;
-    var scormPlayerUrl = "ihasco/scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
+    var scormPlayerUrl = "scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
 
     function launchScormPlayer() {
       if (scormWindow && !scormWindow.closed) {
