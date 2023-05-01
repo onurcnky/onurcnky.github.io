@@ -2,17 +2,14 @@
 <html>
 <head>
   <title>My SCORM Player</title>
-  <script src="SCORM_API_wrapper.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/gh/pipwerks/Pipwerks.SCORM-Wrapper/src/pipwerks.SCORM.js"></script>
 </head>
 <body>
   <button id="play-scorm">Play SCORM</button>
 
   <script>
     var scormWindow;
-    var scormPlayerUrl = "scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
-    
-    var scorm = pipwerks.scorm;
-    var lmsConnected = false;
+    var scormPlayerUrl = "ihasco/scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
 
     function launchScormPlayer() {
       if (scormWindow && !scormWindow.closed) {
@@ -22,8 +19,24 @@
     }
 
     document.getElementById("play-scorm").addEventListener("click", launchScormPlayer);
+
+    // SCORM API code
+    var scorm = pipwerks.SCORM;
+    var lmsConnected = false;
+
+    function connectToLMS() {
+      var result = scorm.init();
+
+      if (result) {
+        lmsConnected = true;
+        console.log("Connected to LMS");
+      } else {
+        console.log("Failed to connect to LMS");
+      }
+    }
+
+    window.addEventListener("load", connectToLMS);
   </script>
 </body>
 </html>
-
 
