@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My SCORM Page</title>
-    <script src="SCORM_API_wrapper.js" type="text/javascript"></script>
-    <script>
-      // Initialize SCORM wrapper
-      pipwerks.SCORM.init();
+<head>
+  <title>My SCORM Player</title>
+  <script src="ihasco/SCORM_API_wrapper.js"></script>
+</head>
+<body>
+  <button id="play-scorm">Play SCORM</button>
 
-      // Get the value of a SCORM variable
-      var myVariable = pipwerks.SCORM.get("cmi.core.lesson_location");
+  <script>
+    var scormWindow;
+    var scormPlayerUrl = "ihasco/scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
 
-      // Set the value of a SCORM variable
-      pipwerks.SCORM.set("cmi.core.score.raw", 75);
+    function launchScormPlayer() {
+      if (scormWindow && !scormWindow.closed) {
+        scormWindow.close();
+      }
+      scormWindow = window.open(scormPlayerUrl);
+    }
 
-      // Save the data to the LMS
-      pipwerks.SCORM.save();
-    </script>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+    document.getElementById("play-scorm").addEventListener("click", launchScormPlayer);
+  </script>
+</body>
 </html>
