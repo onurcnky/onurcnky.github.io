@@ -43,14 +43,8 @@
 		$(function() {
 			$("#play-button").click(launchScormPlayer);
 			$("#close-button").click(closeScormPlayer);
-		});
-	</script>
-</head>
-<body>
-	<button id="play-button">Play SCORM</button>
-	<button id="close-button">Close SCORM Player</button>
-	
-	function initCourse(){
+			
+			function initCourse(){
 
    //scorm.init returns a boolean
    lmsConnected = scorm.init();
@@ -89,5 +83,13 @@
    }
 
 }
+		});
+	</script>
+</head>
+<body>
+	<button id="play-button">Play SCORM</button>
+	<button id="close-button">Close SCORM Player</button>
+	
+	
 </body>
 </html>
