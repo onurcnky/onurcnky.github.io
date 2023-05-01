@@ -10,6 +10,9 @@
   <script>
     var scormWindow;
     var scormPlayerUrl = "scorm2004.html?imsmanifest=ihasco/imsmanifest.xml";
+    
+    var scorm = pipwerks.scorm;
+    var lmsConnected = false;
 
     function launchScormPlayer() {
       if (scormWindow && !scormWindow.closed) {
